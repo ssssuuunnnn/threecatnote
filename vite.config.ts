@@ -5,14 +5,25 @@ import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import nightwatchPlugin from 'vite-plugin-nightwatch'
 
+import { quasar, transformAssetUrls } from '@quasar/vite-plugin'
+
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      template: { transformAssetUrls }
+    }),
     vueDevTools(),
     nightwatchPlugin({
       renderPage: './nightwatch/index.html'
     }),
+    // @quasar/plugin-vite options list:
+    // https://github.com/quasarframework/quasar/blob/dev/vite-plugin/index.d.ts
+    quasar({
+      sassVariables: fileURLToPath(
+        new URL('./src/quasar-variables.sass', import.meta.url)
+      )
+    })
   ],
   resolve: {
     alias: {
