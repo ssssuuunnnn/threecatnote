@@ -4,6 +4,9 @@ import TheWelcome from '../components/TheWelcome.vue'
 
 <template>
   <main>
+    <q-avatar>
+      <img src="https://www.restapitutorial.com/images/logo.png" alt="Quasar Logo" />
+    </q-avatar>
     <TheWelcome />
   </main>
 </template>

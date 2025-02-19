@@ -27,6 +27,7 @@ nvm use
 {
   "recommendations": [
     "Vue.volar",
+    "browserstackcom.nightwatch",
     "dbaeumer.vscode-eslint",
     "EditorConfig.EditorConfig",
     "esbenp.prettier-vscode"
@@ -49,7 +50,30 @@ bun dev
 ### Type-Check, Compile and Minify for Production
 
 ```sh
-bun build
+bun run build
+```
+
+### Run End-to-End Tests with [Nightwatch](https://nightwatchjs.org/)
+
+```sh
+# When using CI, the project must be built first.
+bun run build
+
+# Runs the end-to-end tests
+bun test:e2e
+# Runs the tests only on Chrome
+bun test:e2e --env chrome
+# Runs the tests of a specific file
+bun test:e2e tests/e2e/example.ts
+# Runs the tests in debug mode
+bun test:e2e --debug
+```
+    
+### Run Headed Component Tests with [Nightwatch Component Testing](https://nightwatchjs.org/guide/component-testing/introduction.html)
+  
+```sh
+bun test:unit
+bun test:unit -- --headless # for headless testing
 ```
 
 ### Lint with [ESLint](https://eslint.org/)

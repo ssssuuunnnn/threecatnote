@@ -6,12 +6,9 @@
     },
     {
       "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./nightwatch/tsconfig.json"
     }
-  ],
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    }
-  }
+  ]
 }
